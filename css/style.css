@@ -1,0 +1,74 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: Arial;
+	font-size: 12px;
+}
+header{
+	background-color: #14B4C4;
+	color: #F8F8F8;
+	width: 100%;
+}
+header > ul{
+	display: table;
+	list-style: none;
+	height: 60px;
+	width: 100%;
+}
+header > ul > li{
+	display: table-cell;
+	vertical-align: middle;
+}
+header > ul > li.headLogo{
+	font-size: 18px;
+	text-align: center;
+	width: 45%;
+}
+header > ul > li.headLogo > div{
+	display: inline-table;
+}
+header > ul > li.headLogo > div > *{
+	display: table-cell;
+	vertical-align: middle;
+}
+header > ul > li.headLogo > div > img{
+	height: 50px;
+	margin: 0 5px;
+	width: 40px;
+}
+header > ul > li.headLogo > div > div > h3{
+	font-family: Geosans;
+	font-style: italic;
+	padding: 2px 10px; 
+	text-align: left;
+}
+header > ul > li.headLogo > div > div > h5{
+	font-family: Carme;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 1px 10px; 
+	text-align: left; 
+}
+header > ul > li> a{
+	border-radius: 5px 0 5px 0;
+	color: inherit;
+	padding: 8px 10px;
+	text-decoration: none;
+}
+header > ul > li.headSelected > a{
+	background-color: #FCA852;
+	font-weight: bold;
+}
+header > ul > li.headItem,
+header > ul > li.headSelected{
+	font-family: Bonveno;
+}
+header > ul > li.headItem > a:hover{
+	background-color: rgba(0,0,0,.25);
+}
+header > ul > li.headSpace{
+	width: 5%;
+}

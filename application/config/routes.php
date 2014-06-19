@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "Articulos";
+$route['default_controller'] = "main/Modulos";
 $route['404_override'] = '';
 
 
