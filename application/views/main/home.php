@@ -14,12 +14,12 @@
 						<?php
 						echo img("images/uni.png");
 						$url = base_url();
-						echo "<div>".heading('Bienvenido, usuario', 3).heading('Software de apoyo al curso - UNI-FIIS 2014', 5)."</div>";
+						echo "<div>".heading("Bienvenido, ".$username, 3).heading('Software de apoyo al curso - UNI-FIIS 2014', 5)."</div>";
 						?>
 					</div>
 				</li>
 				<li class="<?php echo ($ref == "home") ? "headSelected" : "headItem";?>">
-					<a href="<?php echo $url;?>">Inicio</a>
+					<a href="<?php echo $url."main/modulos/home";?>">Inicio</a>
 				</li>
 				<li class="<?php echo ($ref == "regs") ? "headSelected" : "headItem";?>">
 					<a href="<?php echo $url."main/modulos/registros";?>">Registros</a>
@@ -32,6 +32,9 @@
 				</li>
 				<li class="<?php echo ($ref == "pers") ? "headSelected" : "headItem";?>">
 					<a href="<?php echo $url."main/modulos/personalizacion";?>">Personalizaci&oacute;n</a>
+				</li>
+				<li class="headItem">
+					<a href="<?php echo $url."main/modulos/destroy";?>">Salir</a>
 				</li>
 				<li class="headSpace">
 					<!---->
