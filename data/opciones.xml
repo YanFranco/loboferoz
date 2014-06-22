@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grupos>
+    <grupo>
+        <titulo>Ingreso de datos</titulo>
+        <items>
+            <item>
+                <nombre>Registro de eventos</nombre>
+                <tamano>S</tamano>
+                <color>sorange</color>
+                <icono>clase.png</icono>
+                <url></url>
+            </item>
+            <item>
+                <nombre>Registro de temas</nombre>
+                <tamano>S</tamano>
+                <color>wpurple</color>
+                <icono>temas.png</icono>
+                <url></url>
+            </item>
+            <item>
+                <nombre>Registro de alumnos</nombre>
+                <tamano>L</tamano>
+                <color>sblue</color>
+                <icono>critter.png</icono>
+                <url></url>
+            </item>
+            <item>
+                <nombre>Asignacion de grupos</nombre>
+                <tamano>S</tamano>
+                <color>wgreen</color>
+                <icono>grupos.png</icono>
+                <url></url>
+            </item>
+        </items>
+    </grupo>
+    <grupo>
+        <titulo>Asistencia</titulo>
+        <items>
+            <item>
+                <nombre>Asistencia del dia</nombre>
+                <tamano>L</tamano>
+                <color>sred</color>
+                <icono>asistencia.png</icono>
+                <url></url>
+            </item>
+            <item>
+                <nombre>Reporte de asistencia</nombre>
+                <tamano>L</tamano>
+                <color>mblue</color>
+                <icono>reporte.png</icono>
+                <url></url>
+            </item>
+        </items>
+    </grupo>
+    <grupo>
+        <titulo>Sorteo</titulo>
+        <items>
+            <item>
+                <nombre>Sorteo individual con reposicion</nombre>
+                <tamano>L</tamano>
+                <color>pink</color>
+                <icono>roulette.png</icono>
+                <url></url>
+            </item>
+            <item>
+                <nombre>Sorteo individual sin reposicion</nombre>
+                <tamano>S</tamano>
+                <color>gray</color>
+                <icono>norepos.png</icono>
+                <url></url>
+            </item>
+            <item>
+                <nombre>Sorteo grupal</nombre>
+                <tamano>S</tamano>
+                <color>sgreen</color>
+                <icono>repos.png</icono>
+                <url></url>
+            </item>
+        </items>
+    </grupo>
+    <grupo>
+        <titulo>Personalizacion</titulo>
+        <items>
+            <item>
+                <nombre>Parametros generales</nombre>
+                <tamano>L</tamano>
+                <color>sbluegreen</color>
+                <icono>config.png</icono>
+                <url></url>
+            </item>
+        </items>
+    </grupo>
+</grupos>
