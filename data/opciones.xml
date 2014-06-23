@@ -8,14 +8,14 @@
                 <tamano>S</tamano>
                 <color>sorange</color>
                 <icono>clase.png</icono>
-                <url></url>
+                <url>maestros/data</url>
             </item>
             <item>
                 <nombre>Registro de temas</nombre>
                 <tamano>S</tamano>
                 <color>wpurple</color>
                 <icono>temas.png</icono>
-                <url></url>
+                <url>maestros/data/tema</url>
             </item>
             <item>
                 <nombre>Registro de alumnos</nombre>

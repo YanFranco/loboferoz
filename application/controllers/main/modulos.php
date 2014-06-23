@@ -19,7 +19,8 @@ class Modulos extends CI_Controller {
 			"type" => "text/css"
 		)
 	);
-	public function index() {$logged = $this->login_model->isLogged();
+	public function index() {
+		$logged = $this->login_model->isLogged();
         if($logged == TRUE) {
         	$this->data["username"] = $this->session->userdata['username'];
 			$this->data["ref"] = "home";

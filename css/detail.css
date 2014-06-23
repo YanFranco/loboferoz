@@ -1,0 +1,298 @@
+*{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #F8F8F8;
+}
+header{
+	background: #14B4C4;
+	color: #F8F8F8;
+	display: table;
+	height: 60px;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+header > *{
+	display: table-cell;
+	vertical-align: middle;
+}
+header > h1{
+	font-family: OpenSans;
+	font-size: 24px;
+	font-weight: normal;
+	padding: 0 20px;
+}
+header > h6{
+	text-align: center;
+	width: 50px;
+}
+header > h6 > a{
+	border-radius: 10px 10px 10px 0px;
+	display: block;
+	height: 40px;
+	padding: 10px;
+	transition: background 150ms;
+	-moz-transition: background 150ms;
+	width: 40px;
+}
+header > h6 > a:hover{
+	background: rgba(0,0,0,.15);
+}
+header > h6 > a > img{
+	height: 20px;
+	width: 20px;
+}
+section{
+	padding-top: 60px;
+	transition: width 100ms;
+	width: 100%;
+}
+section > .detailTitle{
+	height: 60px;
+	display: table;
+	width: 100%;
+}
+section > .detailTitle > h1{
+	display: table-cell;
+	font-family: Geosans;
+	font-weight: normal;
+	padding: 0 40px;
+	vertical-align: bottom;
+}
+section > .detailContainer{
+	/*max-height: 200px;*/
+	overflow-y: auto;
+	padding: 15px;
+	width: 100%;
+}
+section > .detailContainer > .detailItem{
+	color: #080808;
+	display: block;
+	float: left;
+	font-family: Quicksand;
+	margin: 15px;
+	text-decoration: none;
+}
+section > .detailContainer > .detailItem:hover{
+	background-color: rgba(0,0,0,.05);
+}
+section > .detailContainer > .selectedItem,
+section > .detailContainer > .selectedItem:hover{
+	background-color: #F5FFC4;
+}
+section > .detailContainer > .detailItem > div{
+	height: 180px;
+    text-align: center;
+    width: 180px;
+}
+section > .detailContainer > .detailItem > div > img{
+	border: 2px solid #404040;
+	border-radius: 50px;
+	height: 100px;
+	margin: 15px 40px;
+	width: 100px;
+}
+section > .detailContainer > .detailItem > div > p{
+	color: #004B8B;
+	height: 40px;
+	padding: 0 20px;
+	width: 180px;
+}
+aside{
+	background: #222222;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 60px 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: width 100ms;
+	width: 0;
+	z-index: 5;
+}
+aside > form{
+	padding: 15px 30px;
+}
+aside > form > div{
+	display: table;
+	height: 40px;
+	width: 100%;
+}
+aside > form > div > h2{
+	color: #F8F8F8;
+	font-family: Geosans;
+	font-size: 32px;
+	font-weight: lighter;
+}
+aside > form > div:first-child{
+	height: 50px;
+}
+aside > form > div > *{
+	color: #F8F8F8;
+	display: table-cell;
+	font-family: DroidSans;
+	font-size: 14px;
+	vertical-align: middle;
+}
+aside > form > div > label{
+	padding: 0 15px;
+	text-align: right;
+	width: 30%;
+}
+aside > form > div > span{
+	width: 70%;
+}
+aside > form > div > span > input{
+	background-color: rgba(255,255,255,.1);
+	border: 2px solid #D8D8D8;
+	color: #F8F8F8;
+	height: 30px;
+	padding: 0 4px;
+}
+aside > form > div > span > input:focus{
+	background-color: rgba(255,255,255,.75);
+	color: #080808;
+}
+aside > form > div:last-child{
+	height: 80px;
+}
+aside > form > div > strong{
+	text-align: center;
+	width: 50%;
+}
+aside > form > div > strong > input{
+	background-color: rgba(255,255,255,.1);
+	background-position: 5px 3px;
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	border: 2px solid #D8D8D8;
+	color: #F8F8F8;
+	cursor: pointer;
+	font-family: Geosans;
+	font-size: 20px;
+	padding: 4px 5px 4px 36px;
+	text-align: left;
+	width: 130px;
+}
+aside > form > div > strong > input[type=submit]{
+	background-image: url('../images/save.png');
+}
+aside > form > div > strong > input[type=button]{
+	background-image: url('../images/cancel.png');
+}
+aside > form > div > strong > input:hover{
+	background-color: rgba(255,255,255,.25);
+}
+aside > form > p.formError{
+	border: 1px solid crimson;
+	color: crimson;
+	font-family: OpenSans;
+	font-size: 12px;
+	margin: 3px 0;
+	padding: 3px;
+}
+footer{
+	background: #C8C8C8;
+	bottom: 0;
+	display: block;
+	height: 0px;
+	overflow: hidden;
+	position: fixed;
+	transition: height 100ms;
+	width: 100%;
+	z-index: 10;
+}
+footer > div{
+	display: block;
+	height: 60px;
+	margin: 0 auto;
+	text-align: center;
+}
+footer > div > div{
+	display: inline-block;
+	height: 60px;
+	margin: 0 15px;
+	width: 60px;
+}
+footer > div > div:hover{
+	background: rgba(0,0,0,.15);
+}
+footer > div > div > a{
+	display: block;
+	color: #080808;
+	text-decoration: none;
+}
+footer > div > div > a > div{
+	background-image: url('../images/actions.png');
+	background-size: 120px 30px;
+	display: block;
+	height: 30px;
+	margin: 4px 15px;
+	width: 30px;
+}
+footer > div > div:last-child > a > div{
+	background-image: url('../images/dcancel.png');
+	background-size: 30px 30px;
+}
+footer > div > div > a > h6{
+	font-family: Geosans;
+	font-size: 15px;
+	text-align: center;
+}
+.s1{width:10px;}
+.s2{width:20px;}
+.s3{width:30px;}
+.s4{width:40px;}
+.s5{width:50px;}
+.s6{width:60px;}
+.s7{width:70px;}
+.s8{width:80px;}
+.s9{width:90px;}
+.s10{width:100px;}
+.s11{width:110px;}
+.s12{width:120px;}
+.s13{width:130px;}
+.s14{width:140px;}
+.s15{width:150px;}
+.s16{width:160px;}
+.s17{width:170px;}
+.s18{width:180px;}
+.s19{width:190px;}
+.s20{width:200px;}
+.s21{width:210px;}
+.s22{width:220px;}
+.s23{width:230px;}
+.s24{width:240px;}
+.s25{width:250px;}
+.s26{width:260px;}
+.s27{width:270px;}
+.s28{width:280px;}
+.s29{width:290px;}
+.s30{width:300px;}
+.s31{width:310px;}
+.s32{width:320px;}
+.s33{width:330px;}
+.s34{width:340px;}
+.s35{width:350px;}
+.s36{width:360px;}
+.s37{width:370px;}
+.s38{width:380px;}
+.s39{width:390px;}
+.s40{width:400px;}
+.s41{width:410px;}
+.s42{width:420px;}
+.s43{width:430px;}
+.s44{width:440px;}
+.s45{width:450px;}
+.s46{width:460px;}
+.s47{width:470px;}
+.s48{width:480px;}
+.s49{width:490px;}
+.s50{width:500px;}
