@@ -89,5 +89,49 @@ class Guarda extends CI_Controller {
 			}
 		}
 	}
+	public function participante() {
+		if($this->isLoged == TRUE){
+			$this->load->model("maestros/participantes");
+			$data["struct"] = $this->participantes->formStruct();
+			$data["title"] = "Lista de participantes";
+			$this->form_validation->set_rules("DNI", "DNI", "required|exact_length[10]");
+			$this->form_validation->set_rules("CodigoUni", "Codigo UNI", "required|exact_length[10]");
+			$this->form_validation->set_rules("Nombre_Persona", "Nombre del participante", "required|max_length[30]");
+			$this->form_validation->set_rules("ApellidoPaterno", "Apellido paterno", "required|max_length[30]");
+			$this->form_validation->set_rules("ApellidoMaterno", "Apellido materno", "required|max_length[20]");
+			$this->form_validation->set_rules("CorreoElectronico", "Correo electronico", "required|max_length[45]");
+			$this->form_validation->set_message("required", "* Debe ingresar un valor para el campo %s");
+			$this->form_validation->set_message("exact_length[10]", "* El campo %s debe contener 10 caracteres");
+			$this->form_validation->set_message("max_length[30]", "* El campo %s debe contener 30 caracteres como maximo");
+			$this->form_validation->set_message("max_length[20]", "* El campo %s debe contener 20 caracteres como maximo");
+			$this->form_validation->set_message("max_length[45]", "* El campo %s debe contener 45 caracteres como maximo");
+			$this->form_validation->set_error_delimiters('<p class="formError">','</p>');
+			if ($this->form_validation->run() == FALSE){
+				$data["items"] = $this->participantes->showItems();
+				$data["error"] = form_error("Descripcion");
+				$this->load->view("maestros/lista",$data);
+			}else{
+				extract($_POST);
+				switch($action){
+					case "add":
+						$data["success"] = $this->participantes->insert(array($DNI,$CodigoUni,$Nombre_Persona,$ApellidoPaterno,
+							$ApellidoMaterno,$CorreoElectronico));
+						break;
+					case "edit":
+						$data["success"] = $this->participantes->edit(array($idParticipante,$Nombre_Persona,$ApellidoPaterno,
+							$ApellidoMaterno,$CorreoElectronico));
+						break;
+					case "del":
+						$data["success"] = $this->participantes->delete($idParticipante);
+						break;
+					default;
+						$data["success"] = "";
+						break;
+				}
+				$data["items"] = $this->participantes->showItems();
+				$this->load->view("maestros/lista",$data);
+			}
+		}
+	}
 }
 ?>

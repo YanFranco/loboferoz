@@ -6,6 +6,13 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/fonts.css" />
 		<script src="<?php echo base_url();?>js/jquery-min.js"></script>
 		<script src="<?php echo base_url();?>js/formList.js"></script>
+		<script>
+			function setValues(item){
+				<?php
+				echo $script;
+				?>
+			}
+		</script>
 	</head>
 	<body <?php echo ($items == "") ? " onload=\"showFooter();\"" : "";?>>
 		<header>

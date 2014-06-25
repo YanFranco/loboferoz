@@ -3,6 +3,16 @@ class Eventos extends CI_Model {
 	public function __construct() {
         $this->load->database();
     }
+	public function generateScript(){
+		$cols = array("IdEvento","Nombre_Evento","FechaInicio","Fechafin","NumeroParticipantes","Duracion_Evento",
+			"Lugar_Evento","IdEstadoEvento");
+		$script = "";
+		foreach($cols as $index => $field){
+			$script .= "
+				document.getElementById(\"$field\").value = item.eq($index).val();";
+		}
+		return $script;
+	}
 	public function showItems() {
 		$query = "call sp_evento_select()";
 		$consulta = $this->db->query($query);

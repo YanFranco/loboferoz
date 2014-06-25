@@ -18,11 +18,11 @@
                 <url>maestros/data/tema</url>
             </item>
             <item>
-                <nombre>Registro de alumnos</nombre>
+                <nombre>Registro de participantes</nombre>
                 <tamano>L</tamano>
                 <color>sblue</color>
                 <icono>critter.png</icono>
-                <url></url>
+                <url>maestros/data/participante</url>
             </item>
             <item>
                 <nombre>Asignacion de grupos</nombre>

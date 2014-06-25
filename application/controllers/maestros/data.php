@@ -23,6 +23,7 @@ class Data extends CI_Controller {
 			$data["items"] = $this->eventos->showItems();
 			//setear formulario
 			$data["struct"] = $this->eventos->formStruct();
+			$data["script"] = $this->eventos->generateScript();
 			//carga la vista
 			$data["title"] = "Eventos registrados";
 			$this->load->view("maestros/lista",$data);
@@ -35,8 +36,22 @@ class Data extends CI_Controller {
 			$data["items"] = $this->temas->showItems();
 			//setear formulario
 			$data["struct"] = $this->temas->formStruct();
+			$data["script"] = $this->temas->generateScript();
 			//carga la vista
 			$data["title"] = "Temas registrados";
+			$this->load->view("maestros/lista",$data);
+		}
+	}
+	public function participante() {
+		if($this->isLoged == TRUE){
+			//carga los datos de la bd
+			$this->load->model("maestros/participantes");
+			$data["items"] = $this->participantes->showItems();
+			//setear formulario
+			$data["struct"] = $this->participantes->formStruct();
+			$data["script"] = $this->participantes->generateScript();
+			//carga la vista
+			$data["title"] = "Participantes registrados";
 			$this->load->view("maestros/lista",$data);
 		}
 	}

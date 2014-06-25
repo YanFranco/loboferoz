@@ -3,6 +3,15 @@ class Temas extends CI_Model {
 	public function __construct() {
         $this->load->database();
     }
+	public function generateScript(){
+		$cols = array("idTema","Descripcion");
+		$script = "";
+		foreach($cols as $index => $field){
+			$script .= "
+				document.getElementById(\"$field\").value = item.eq($index).val();";
+		}
+		return $script;
+	}
 	public function showItems() {
 		$query = "call sp_tema_select()";
 		$consulta = $this->db->query($query);
