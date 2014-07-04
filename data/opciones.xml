@@ -56,17 +56,10 @@
         <titulo>Sorteo</titulo>
         <items>
             <item>
-                <nombre>Sorteo individual con reposicion</nombre>
+                <nombre>Sorteo individual</nombre>
                 <tamano>L</tamano>
                 <color>pink</color>
                 <icono>roulette.png</icono>
-                <url></url>
-            </item>
-            <item>
-                <nombre>Sorteo individual sin reposicion</nombre>
-                <tamano>S</tamano>
-                <color>gray</color>
-                <icono>norepos.png</icono>
                 <url></url>
             </item>
             <item>

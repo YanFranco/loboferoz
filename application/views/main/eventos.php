@@ -37,33 +37,30 @@
 		<section id="itemContainer">
 			<div id="itemSlider">
 				<?php
-				$xml = simplexml_load_file("data/opciones.xml");
-				foreach($xml->grupo as $nodo => $grupo){
-					$titulo = $grupo->titulo;
-					echo "
+				echo "
 				<article>
-					<div class=\"articleTitle\"><h1>$titulo</h1></div>
+					<div class=\"articleTitle\"><h1>Seleccione un evento</h1></div>
 					<div class=\"articleContainer\">";
-					$items = $grupo->items->item;
-					foreach($items as $inodo => $item){
-						//echo $item->nombre."<br/>";
-						$nombre = $item->nombre;
-						$size = ($item->tamano == "L") ? "largeicon" : "smallIcon";
-						$clase = $item->color;
-						$icon = img("images/".$item->icono);
-						$href = ($item->url == "") ? "#" : base_url().$item->url;
-						echo "
-						<a href=\"$href\" class=\"articleItem $size $clase\">
-							<div>
-								$icon
-								<p>$nombre</p>
-							</div>
-						</a>";
-					}
+				foreach($items as $inodo => $item){
+					print_r($item);
+					echo "<br/><br/>";
+					//echo $item->nombre."<br/>";
+					
+					$nombre = $item->Nombre_Evento;
+					$clase = "wbluegreen";
+					$icon = img("images/event.png");
+					$href = base_url();
 					echo "
+					<a href=\"$href\" class=\"articleItem smallIcon $clase\">
+						<div>
+							$icon
+							<p>$nombre</p>
+						</div>
+					</a>";
+				}
+				echo "
 					</div>
 				</article>";
-				}
 				?>
 			</div>
 		</section>

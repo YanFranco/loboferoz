@@ -22,9 +22,17 @@ class Modulos extends CI_Controller {
 	public function index() {
 		$logged = $this->login_model->isLogged();
         if($logged == TRUE) {
-        	$this->data["username"] = $this->session->userdata['username'];
+    		$this->data["username"] = $this->session->userdata['username'];
 			$this->data["ref"] = "home";
-			$this->load->view("main/home",$this->data);
+        	//if(isset($this->session->userdata['evento'])){
+				$this->load->view("main/home",$this->data);/*
+        	}
+			else{
+				$this->load->model("maestros/eventos");
+				$lista = $this->eventos->load();
+				$this->data["items"] = $lista;
+				$this->load->view("main/eventos",$this->data);
+			}*/
         }
         elseif(!isset($_POST['username'])) {
 			$this->load->view("login/form_login"); //si no recibimos datos por post, cargamos la vista del formulario
