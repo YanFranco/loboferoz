@@ -113,7 +113,8 @@ class Programar extends CI_Controller {
 			}
 			else {
 				$catalogo = $this->spevento->catalogo_participantes();
-				$this->load->view("eventos/asignaparticipantes",array("evento" => $evento, "items" => $catalogo));
+				$tipos = $this->spevento->combo_tipos_participante();
+				$this->load->view("eventos/asignaparticipantes",array("evento" => $evento, "items" => $catalogo, "tipos" => $tipos));
 			}
 		}
 		else {

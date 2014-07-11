@@ -49,9 +49,14 @@
 						<?php
 						$clases = array("par","impar");
 						$select = "
-									<select name=\"tipos[]\" class=\"s12\">
-										<option value=\"0\">Tipo</option>
-										<option value=\"1\">Otro</option>
+									<select name=\"tipos[]\" class=\"s12\">";
+						foreach($tipos as $indiceTipo => $tipo) {
+							$cod = $tipo->cod;
+							$des = $tipo->des;
+							$select .= "
+										<option value=\"$cod\">$des</option>";
+						}
+						$select .= "
 									</select>";
 						foreach($items as $key => $item) {
 							$clase = $clases[$key % 2];
