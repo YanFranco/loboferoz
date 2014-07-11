@@ -42,14 +42,11 @@
 					<div class=\"articleTitle\"><h1>Seleccione un evento</h1></div>
 					<div class=\"articleContainer\">";
 				foreach($items as $inodo => $item){
-					print_r($item);
-					echo "<br/><br/>";
-					//echo $item->nombre."<br/>";
-					
+					//print_r($item);
 					$nombre = $item->Nombre_Evento;
 					$clase = "wbluegreen";
 					$icon = img("images/event.png");
-					$href = base_url();
+					$href = base_url()."main/event/?ev=".$item->IdEvento;
 					echo "
 					<a href=\"$href\" class=\"articleItem smallIcon $clase\">
 						<div>

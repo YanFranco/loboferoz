@@ -25,6 +25,13 @@
                 <url>maestros/data/participante</url>
             </item>
             <item>
+                <nombre>Programación de sesiones</nombre>
+                <tamano>S</tamano>
+                <color>sbrown</color>
+                <icono>event.png</icono>
+                <url>eventos/programar</url>
+            </item>
+            <item>
                 <nombre>Asignacion de grupos</nombre>
                 <tamano>S</tamano>
                 <color>wgreen</color>
@@ -60,14 +67,14 @@
                 <tamano>L</tamano>
                 <color>pink</color>
                 <icono>roulette.png</icono>
-                <url></url>
+                <url>sorteo/sorteo/sindividual</url>
             </item>
             <item>
                 <nombre>Sorteo grupal</nombre>
                 <tamano>S</tamano>
                 <color>sgreen</color>
                 <icono>repos.png</icono>
-                <url></url>
+                <url>sorteo/sorteo/sgrupal</url>
             </item>
         </items>
     </grupo>

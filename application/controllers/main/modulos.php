@@ -24,15 +24,15 @@ class Modulos extends CI_Controller {
         if($logged == TRUE) {
     		$this->data["username"] = $this->session->userdata['username'];
 			$this->data["ref"] = "home";
-        	//if(isset($this->session->userdata['evento'])){
-				$this->load->view("main/home",$this->data);/*
+        	if(isset($this->session->userdata['evento'])){
+				$this->load->view("main/home",$this->data);
         	}
 			else{
 				$this->load->model("maestros/eventos");
 				$lista = $this->eventos->load();
 				$this->data["items"] = $lista;
 				$this->load->view("main/eventos",$this->data);
-			}*/
+			}
         }
         elseif(!isset($_POST['username'])) {
 			$this->load->view("login/form_login"); //si no recibimos datos por post, cargamos la vista del formulario
@@ -54,9 +54,10 @@ class Modulos extends CI_Controller {
 					);
 					$this->session->set_userdata($sesion_data);
 					$this->data["username"] = $this->session->userdata['username'];
-                    //$data['password'] = $this->session->userdata['password'];
-					$this->data["ref"] = "home";
-					$this->load->view("main/home",$this->data);
+					$this->load->model("maestros/eventos");
+					$lista = $this->eventos->load();
+					$this->data["items"] = $lista;
+					$this->load->view("main/eventos",$this->data);
 				}
 				else {
                     // si es erroneo, devolvemos un mensaje de error

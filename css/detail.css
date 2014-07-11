@@ -53,6 +53,26 @@ section{
 	transition: width 100ms;
 	width: 100%;
 }
+section > .detailToolbar{
+	display: table;
+	font-family: Geosans;
+	height: 60px;
+	padding: 0 10px;
+}
+section > .detailToolbar > *{
+	display: table-cell;
+	vertical-align: middle;
+}
+section > .detailToolbar > label{
+	padding: 0 10px 0 30px;
+}
+section > .detailToolbar > span > input,
+section > .detailToolbar > span > select{
+	font-family: Geosans;
+	font-size: 15px;
+	padding: 5px;
+	resize: none;
+}
 section > .detailTitle{
 	height: 60px;
 	display: table;
@@ -103,6 +123,41 @@ section > .detailContainer > .detailItem > div > p{
 	height: 40px;
 	padding: 0 20px;
 	width: 180px;
+}
+section > .detailContainer > form > table{
+	border: 1px solid #FFFFFF;
+	border-collapse: collapse;
+	border-spacing: 0;
+	display: none;
+	margin: 10px auto;
+	width: 90%;
+}
+section > .detailContainer > form > table > thead > tr{
+	background-color: #4A98AF;
+}
+section > .detailContainer > form > table > thead > tr > th{
+	color: #FFFFFF;
+}
+section > .detailContainer > form > table > thead > tr > th,
+section > .detailContainer > form > table > tbody > tr > td{
+	font-family: Bonveno;
+	font-size: 13px;
+	padding: 4px;
+}
+section > .detailContainer > form > table > tbody > tr{
+	border-top: 1px solid #888888;
+}
+section > .detailContainer > form > table > tbody > tr.par{
+	background-color: #E5F1F4;
+}
+section > .detailContainer > form > table > tbody > tr.impar{
+	background-color: #FFFFFF;
+}
+section > .detailContainer > form > table > tbody > tr:hover > td{
+	background-color: #ECFBD4;
+}
+section > .detailContainer > form > #sbmGuardar{
+	display: none;
 }
 aside{
 	background: #222222;
@@ -245,6 +300,61 @@ footer > div > div > a > h6{
 	font-family: Geosans;
 	font-size: 15px;
 	text-align: center;
+}
+.confirmbtn{
+	background-color: #004B8B;
+	color: #F8F8F8;
+	font-family: Geosans;
+	font-size: 20px;
+	margin: 20px;
+	padding: 6px 10px;
+	text-decoration: none;
+	transition: background 150ms;
+}
+.confirmbtn:hover{
+	background-color: #002B6B;
+}
+.left{
+	text-align: left;
+}
+.center{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+.btnElimina{
+	background-color: #CF274B;
+	background-image: url('../images/cancel.png');
+	background-size: 18px 18px;
+	background-position: -1px -1px;
+	border: none;
+	border-radius: 8px;
+	color: #F8F8F8;
+	cursor: pointer;
+	height: 16px;
+	text-align: center;
+	width: 16px;
+}
+.bottomFloat{
+	bottom: 20px;
+	position: fixed;
+	z-index: 5;
+}
+.msgError{
+	background-color: #FFCCCC;
+	border-radius: 8px;
+	border: 1px solid #CF274B;
+	color: #CF274B;
+	font-family: Geosans;
+	font-size: 14px;
+	height: 50px;
+	left: 50%;
+	margin-left: -400px;
+	width: 800px;
+}
+.msgError > p{
+	padding: 8px;
 }
 .s1{width:10px;}
 .s2{width:20px;}

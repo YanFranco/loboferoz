@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "main/Modulos";
 $route['404_override'] = '';
+$route["event/:num"] = "";
 
 
 /* End of file routes.php */

@@ -1,0 +1,168 @@
+
+body
+{
+	background-color:#fff6f1;
+	font-family: 'Russo One', sans-serif;
+}
+#contenido
+{
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+h1
+{
+	color:#e44e2d;
+}
+
+
+header hgroup h1
+{
+	border-bottom: solid;
+	padding-bottom: 10px;
+	border-width:1px;
+	border-color: #1d1d1d;
+	text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+}
+nav ul li
+{
+	display: inline-block;
+	margin-right: 20px;
+	color:#1d1d1d;
+	cursor: pointer;
+	padding: 15px;
+
+
+}
+
+nav ul li :hover
+{
+	padding: 8px;
+	background-color: #1d1d1d;
+	color: #e44e2d;
+	border-radius: 5px;
+	transition:all 0.3s linear;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition:all 0.3s linear;
+	-o-transition: all 0.3s linear;
+}
+
+nav ul li a
+{
+	text-decoration: none;
+}
+.title
+{
+	display: inline-block;
+}
+
+img.title
+{
+	height: 100px;
+	right: 0px;
+	border: none!important;
+}
+#textoPr
+{
+
+	width: 800px;
+	height:400px;
+	background-color: #1d1d1d;
+	color: #FFF;
+	margin: 0 auto;
+	text-align: left;
+	border-radius: 20px;
+	padding: 20px;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+/*
+#left{
+
+	position: relative;
+	left: 40px;
+	width: 40%;
+	height: 100%;
+}
+#right{
+
+	position: relative;
+
+}
+}*/
+
+#left{
+	float: left;
+	width: 50%;
+}
+#right{
+
+	float: right;
+	width: 50%;
+}
+#miCanvas{
+	position: relative;
+
+}
+
+p { padding: 5px; }
+
+label { display: block;}
+#repo{ display: inline;}
+
+textarea
+{
+	display: inline;
+	width: 200px;
+	height: 135px;
+ 	-webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border: 1px solid #BDC2C9;
+}
+
+#btnSubmit
+{
+	background-color: #FFF;
+	color: #e44e2d;
+	height: 25px;
+	padding 4px;
+	margin: 20px;
+	cursor: pointer;
+	-webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+	border: 5px;
+	font-family: 'Russo One', sans-serif;
+}
+a
+{
+	color: #e44e2d;
+	font-weight: bold;
+}
+
+textarea#status{
+
+	text-align: center;
+	font-size:25px;
+	font-family:Verdana,Helvetica;
+	border: 3px solid #cccccc;
+	width: 300px;
+	height: 30px;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	padding: 5px;
+
+}
+
+button{
+
+	font-size:15px;
+	font-family:Verdana,Helvetica;
+	font-weight:bold;
+	color:white;
+	background:#638cb5;
+	border:30px;
+	width:100px;
+	height:30px;
+
+}
