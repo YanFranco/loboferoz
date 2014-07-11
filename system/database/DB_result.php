@@ -399,6 +399,7 @@ class CI_DB_result {
 	function list_fields() { return array(); }
 	function field_data() { return array(); }
 	function free_result() { return TRUE; }
+	function next_result() { return FALSE; }  
 	function _data_seek() { return TRUE; }
 	function _fetch_assoc() { return array(); }
 	function _fetch_object() { return array(); }

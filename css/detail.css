@@ -124,35 +124,47 @@ section > .detailContainer > .detailItem > div > p{
 	padding: 0 20px;
 	width: 180px;
 }
+section > .detailContainer > table,
 section > .detailContainer > form > table{
 	border: 1px solid #FFFFFF;
 	border-collapse: collapse;
 	border-spacing: 0;
-	display: none;
 	margin: 10px auto;
 	width: 90%;
 }
+section > .detailContainer > form > #tblSesiones{
+	display: none;
+}
+section > .detailContainer > table > thead > tr,
 section > .detailContainer > form > table > thead > tr{
 	background-color: #4A98AF;
 }
+section > .detailContainer > table > thead > tr > th,
 section > .detailContainer > form > table > thead > tr > th{
 	color: #FFFFFF;
 }
 section > .detailContainer > form > table > thead > tr > th,
-section > .detailContainer > form > table > tbody > tr > td{
+section > .detailContainer > form > table > tbody > tr > td,
+section > .detailContainer > table > thead > tr > th,
+section > .detailContainer > table > tbody > tr > td{
 	font-family: Bonveno;
 	font-size: 13px;
 	padding: 4px;
+	vertical-align: middle;
 }
+section > .detailContainer > table > tbody > tr,
 section > .detailContainer > form > table > tbody > tr{
 	border-top: 1px solid #888888;
 }
+section > .detailContainer > table > tbody > tr.par,
 section > .detailContainer > form > table > tbody > tr.par{
 	background-color: #E5F1F4;
 }
+section > .detailContainer > table > tbody > tr.impar,
 section > .detailContainer > form > table > tbody > tr.impar{
 	background-color: #FFFFFF;
 }
+section > .detailContainer > table > tbody > tr:hover > td,
 section > .detailContainer > form > table > tbody > tr:hover > td{
 	background-color: #ECFBD4;
 }

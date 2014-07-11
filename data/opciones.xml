@@ -51,8 +51,15 @@
                 <url></url>
             </item>
             <item>
+                <nombre>Asignacion de Participantes</nombre>
+                <tamano>S</tamano>
+                <color>gray</color>
+                <icono>norepos.png</icono>
+                <url>eventos/programar/participantes</url>
+            </item>
+            <item>
                 <nombre>Reporte de asistencia</nombre>
-                <tamano>L</tamano>
+                <tamano>S</tamano>
                 <color>mblue</color>
                 <icono>reporte.png</icono>
                 <url></url>

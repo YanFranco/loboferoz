@@ -114,6 +114,10 @@ class CI_DB_mysqli_result extends CI_DB_result {
 			$this->result_id = FALSE;
 		}
 	}
+	function next_result()
+    {
+        return mysqli_next_result($this->conn_id);
+    } 
 
 	// --------------------------------------------------------------------
 

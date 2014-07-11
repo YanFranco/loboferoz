@@ -3,6 +3,7 @@ class Programar extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper("html");
+		$this->load->helper("form");
 		$this->load->model("login_model");
 		$this->load->model("eventos/spevento");
 	}
@@ -19,7 +20,7 @@ class Programar extends CI_Controller {
 					"descrp" => "El evento posee $n ".(($n > 1) ? "sesiones" : "sesión")." registrada".(($n > 1) ? "s" : "")
 				);
 			}
-			else{
+			else {
 				$data = array(
 					"title" => "No hay sesiones registradas",
 					"descrp" => "A&uacute;n no se ha registrado sesiones para el evento. Pulse el siguiente enlace para realizar la programaci&oacute;n."
@@ -27,7 +28,7 @@ class Programar extends CI_Controller {
 			}
 			$this->load->view("eventos/sesiones",$data);
 		}
-		else{
+		else {
 			header("Location: ".base_url());
 		}
 	}
@@ -35,12 +36,11 @@ class Programar extends CI_Controller {
 		if($this->login_model->isLogged() && isset($this->session->userdata['evento'])) {
 			$evento = $this->session->userdata['evento'];
 			$items = $this->spevento->combo_tipos_evento();
-			$this->load->helper("form");
 			$evento = $this->session->userdata['evento'];
 			$data = array("evento" => $evento, "tipos" => $items);
 			$this->load->view("eventos/registra",$data);
 		}
-		else{
+		else {
 			header("Location: ".base_url());
 		}
 	}
@@ -88,7 +88,6 @@ class Programar extends CI_Controller {
 				}
 				else {
 					$items = $this->spevento->combo_tipos_evento();
-					$this->load->helper("form");
 					$data = array("evento" => $evento, "tipos" => $items, "err" => $err);
 					$this->load->view("eventos/registra",$data);
 				}
@@ -96,12 +95,50 @@ class Programar extends CI_Controller {
 			else {
 				array_push($err,"No se recibi&oacute; alguno de los par&aacute;metros.");
 				$items = $this->spevento->combo_tipos_evento();
-				$this->load->helper("form");
 				$data = array("evento" => $evento, "tipos" => $items, "err" => $err);
 				$this->load->view("eventos/registra",$data);
 			}
 		}
-		else{
+		else {
+			header("Location: ".base_url());
+		}
+	}
+	public function participantes() {
+		if($this->login_model->isLogged() && isset($this->session->userdata['evento'])) {
+			$evento = $this->session->userdata['evento'];
+			$items = $this->spevento->lista_participantes($evento);
+			$cont = count($items);
+			if($cont > 0){
+				$this->load->view("eventos/participantes",array("items" => $items));
+			}
+			else {
+				$catalogo = $this->spevento->catalogo_participantes();
+				$this->load->view("eventos/asignaparticipantes",array("evento" => $evento, "items" => $catalogo));
+			}
+		}
+		else {
+			header("Location: ".base_url());
+		}
+	}
+	public function asigna() {
+		if($this->login_model->isLogged() && isset($this->session->userdata['evento'])) {
+			extract($_POST);
+			$isOk = TRUE;
+			$err = array();
+			if(isset($evento,$markers,$participantes,$tipos)) {
+				$i = 0;
+				foreach($participantes as $key => $value) {
+					
+				}
+			}
+			else {
+				array_push($err,"No se recibi&oacute; alguno de los par&aacute;metros.");
+				$items = $this->spevento->catalogo_participantes();
+				$data = array("evento" => $evento, "items" => $items, "err" => $err);
+				$this->load->view("eventos/asignaparticipantes",$data);
+			}
+		}
+		else {
 			header("Location: ".base_url());
 		}
 	}
