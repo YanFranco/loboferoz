@@ -74,14 +74,14 @@
                 <tamano>L</tamano>
                 <color>pink</color>
                 <icono>roulette.png</icono>
-                <url>sorteo/sorteo/sindividual</url>
+                <url>sorteos/sorteo/sindividual</url>
             </item>
             <item>
                 <nombre>Sorteo grupal</nombre>
                 <tamano>S</tamano>
                 <color>sgreen</color>
                 <icono>repos.png</icono>
-                <url>sorteo/sorteo/sgrupal</url>
+                <url>sorteos/sorteo/sgrupal</url>
             </item>
         </items>
     </grupo>

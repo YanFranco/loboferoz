@@ -17,18 +17,10 @@
 			<header>
 				<hgroup>
 
-					<h1 class = "title">LoboFeroz - Sorteos</h1>
-					<img src="<?php echo base_url();?>/images/wolf.png" class = "title">
-				</hgroup>
+					<h1 class = "title">Sorteos Grupal</h1>
+					<img src="img/wolf.png" class = "title">
 
-				<!--nav>
-					<ul>
-						<li><a href="index.html">Inicio</a></li>
-						<li><a href="sorteoGrupal.html">SorteoGrupal</a></li>
-						<li><a href="sorteoIndividual.html">SorteoIndividual</a></li>
-						<li><a href="Reportes.html">Reportes</a></li>
-					</ul>
-				</nav-->	
+				</hgroup>
 
 			</header>
 			<section>
@@ -36,25 +28,36 @@
 				<div id="textoPr">
 
 					<div id="left">
-						<hgroup>
-							<h1>Sorteo Grupal</h1>
-							
-						</hgroup>
 
-						<form>
-							<label id = "repo">Con reposicion</label>
-							<input type="checkbox" id="checkBoxRepo" class="display">
-							<p><label class="display">Numero de grupos</label></p>
-							<input type="text" id="numGrupos" placeholder='Ingresa un numero' required>
-							<p><label class="display">Lista de Grupos</label></p>
-							<textarea id="muestraGrupos" ></textarea>
-							<input type="submit" value="Sortear" id="btnSubmit">
+						<form name="formGrupos">
+
+							<p> <label>Ingrese #grupos : </label>
+								<input type="text" id="numGrupos" name="numGrupos" required size="10">
+							</p>
+
+							<p> <label>Grupos suertudo: </label>
+								<textarea id ="show" class="showNames"></textarea>
+							</p>
+
+							<p> <label>Sortear Grupo: </label>
+								<button id="pushSort" class="botones" onclick = "choose(event);">SORTEAR</button>
+								<textarea id ="sorting" class="showNames"></textarea>
+							</p>
+
+
 						</form>
+
 					</div>
 
 					<div id="right">
-						<canvas id="miCanvas" height="400", weidth="400"></canvas>
+						<canvas id="miCanvas" height="350", width="400"></canvas>
+						<button class="botones" onclick="built();">BUILT!</button>
+						<button id="btnGo" class="botones">GO!</button>
+						<button id="btnStop" class="botones">STOP!</button>
 
+						<script>
+							initListener();
+						</script>
 					</div>
 
 				</div>
@@ -62,7 +65,7 @@
 
 		</div>
 		<footer>
-		
-		</footer>	
+
+		</footer>
 	</body>
 </html>

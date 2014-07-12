@@ -8,10 +8,21 @@
 		<script src="<?php echo base_url();?>js/jquery-min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
 		<script>
-			var degrees = 0;
-			var grupos = ['Yan Franco Calderon', 'Marco Cáceres Choqque', 'Alfonso Velazques Portugal', 'Edwin Calero Chamorro', 'Aldo Inga Sanabria'];
-			function rotateAnimation(el, val){
 
+			//var looper;
+			var degrees = 0, ID;
+			// var alumnos = ['Yan Franco Calderon', 'Marco Cáceres Choqque', 'Alfonso Velazques Portugal', 'Edwin Calero Chamorro', 'Aldo Inga Sanabria'];
+			var alumnos = [<?php foreach ($items as $key => $value) {
+				echo (($key == 0)?'':',')."'".$value->participante."'";
+			}  ?>];
+
+			var noPicked = new Array();
+			var len1 = alumnos.length;
+
+			for(i = 0; i < len1; i++)noPicked[i] = i;
+
+			function rotateAnimation(el, val)
+			{
 				var elem = document.getElementById(el);
 				if(navigator.userAgent.match("Chrome")){
 					elem.style.WebkitTransform = "rotate("+degrees+"deg)";
@@ -22,55 +33,82 @@
 				} else if(navigator.userAgent.match("Opera")){
 					elem.style.OTransform = "rotate("+degrees+"deg)";
 				} else elem.style.transform = "rotate("+degrees+"deg)";
-				
-				looper = setTimeout('rotateAnimation(\''+el+'\','+val+')',10);
-				document.getElementById("status").innerHTML = "" +grupos[degrees%5]+"";
+
+				/*ooper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',speed*/
+
+
+				var on = document.getElementById("ch1").checked;
+
+				if(on){
+
+					ID = degrees%len1;
+					document.getElementById("status").innerHTML = "" + alumnos[ID] + "";
+
+				}
+				else{
+
+
+					var len2 = noPicked.length;
+					ID = noPicked[degrees%len2];
+
+					var cad = "";
+					for(i = 0; i < len2; i++)cad += noPicked[i];
+
+					document.getElementById("status").innerHTML = "" + alumnos[ID] + "";
+
+				}
 
 				degrees+=val;
-				if(degrees > 359)degrees = 1;
-				if(degrees < 0)degrees = 360;
+				if(degrees > 359)degrees = 0;
 
+				looper = setTimeout('rotateAnimation(\''+el+'\','+val+')',1);
+
+			}
+
+			function muestraTexto()
+			{
+				var al = document.getElementById("status").value;
+				document.getElementById("nombres").innerHTML += al + "\n";
 			}
 
 		</script>
 	</head>
 
 	<body>
+
 		<div id="contenido">
+
 			<header>
 				<hgroup>
-					<h1 class = "title">LoboFeroz - Sorteos</h1>
-					<img src="<?php echo base_url();?>/images/wolf.png" class="title" />
+
+					<h1 class = "title">Sorteos Individual</h1>
+					<img src="<?php echo base_url();?>images/wolf.png" class = "title">
 				</hgroup>
-				<!--nav>
-					<ul>
-						<li><a href="index.html">Inicio</a></li>
-						<li><a href="sorteoGrupal.html">SorteoGrupal</a></li>
-						<li><a href="sorteoIndividual.html">SorteoIndividual</a></li>
-						<li><a href="Reportes.html">Reportes</a></li>
-					</ul>
-				</nav-->
 
 			</header>
 			<section>
+
 				<div id="textoPr">
 					<div id="left">
-						<hgroup>
-							<h1>Sorteo Individual</h1>
-						</hgroup>
+
 						<form>
+
 							<label id="repo">Con reposicion</label>
-							<input type="checkbox" name="checkBoxRepo" id="checkBoxRepo">
+							<input type="checkbox" id="ch1">
+
 						</form>
+
+						<p><label class="disp">Alumnos</label></p>
+						<textarea id ="nombres" class="showNames"></textarea>
+
 					</div>
 					<div id="right">
 						<div align="center">
-							<img src="<?php echo base_url();?>/images/engranaje.jpg" />
-							<div>
-								<button id='sortear'>Iniciar</button>
-							<button id='elegir'>Detener</button>
-							</div>
-							
+							<img id="img1" src="<?php echo base_url();?>images/engranaje.jpg" alt="cog1"><br/>
+
+							<input type="submit" value="Iniciar" id="sortear" class="botones">
+							<input type="submit" value="Detener" id="elegir" class="botones">
+
 
 							<script type="text/javascript">
 
@@ -82,19 +120,38 @@
 
 								function startFunction()
 								{
-									rotateAnimation("img1", 2);
+									var check = document.getElementById("ch1").checked;
+									if(check == false && window.noPicked.length == 0)
+									{
+										alert('Ya todos los grupos fueron sorteados');
+										return;
+
+									}
+
+									rotateAnimation("img1", 7);
 									boton1.removeEventListener("click", startFunction);
+									boton2.addEventListener("click", deleteFunction);
 								}
 
 								function deleteFunction()
 								{
 									clearTimeout(looper);
+									var pos;
+
+									for(pos = 0; pos < window.noPicked.length; pos++)
+										if(window.noPicked[pos] == window.ID)break;
+
+									if(pos < window.noPicked.length)window.noPicked.splice(pos, 1);
 									boton1.addEventListener("click", startFunction);
+
+									muestraTexto();
+									boton2.removeEventListener("click", deleteFunction);
+
 								}
 							</script>
 							<br/>
 							<div background-color='#006699'><h1>SUERTUDO</h1></div>
-							<textarea id="status" name="status" ></textarea>
+							<textarea id="status" class ="nombre" ></textarea>
 						 </div>
 					</div>
 

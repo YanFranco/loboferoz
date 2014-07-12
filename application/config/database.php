@@ -48,8 +48,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'system';
+$db['default']['username'] = 'rep';
+$db['default']['password'] = 'rep';
 $db['default']['database'] = 'db_loboferoz';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
