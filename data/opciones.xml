@@ -97,4 +97,23 @@
             </item>
         </items>
     </grupo>
+    <grupo>
+        <titulo>Reportes</titulo>
+        <items>
+            <item>
+                <nombre>Reporte de participación</nombre>
+                <tamano>L</tamano>
+                <color>wgreen</color>
+                <icono>participacion.png</icono>
+                <url>sorteos/sorteo/sreporte</url>
+            </item>
+            <item>
+                <nombre>Reporte de Asitencia</nombre>
+                <tamano>L</tamano>
+                <color>sorange</color>
+                <icono>rasistencia.png</icono>
+                <url>sorteos/sorteo/sasistencia</url>
+            </item>
+        </items>
+    </grupo>
 </grupos>

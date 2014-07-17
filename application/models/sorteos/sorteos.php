@@ -36,15 +36,24 @@ class Sorteos extends CI_Model {
 		$consulta = $this->db->query($query,$params);
 		return $consulta->result();
     }
-///////////////////////// Mostrar el numero de grupos para un sorteo//////////////////////////
+///////////////////////// Mostrar el numero de grupos para un Sorteos//////////////////////////
 	public function loadNumeroGrupos($params) {
 		$query = "call sorteo_NumeroGrupos_sp(?)";
 		$consulta = $this->db->query($query,$params);
 		return $consulta->result();
     }
 
+    public function ReporteParticipacion($params){
+    	$query = "call reporte_participacion_sp(?)";
+    	$consulta = $this->db->query($query,$params);
+    	return $consulta->result();
+    }
 
-
+	public function RecordAsistencia($params){
+    	$query = "call reporte_asistencia_sp(?)";
+    	$consulta = $this->db->query($query,$params);
+    	return $consulta->result();
+    }
 /**************************************************************************/
 	// public function delete($id){
 	// 	$query = "call sp_tema_delete(?)";
