@@ -1,7 +1,7 @@
 
 
 addEventListener('load',init);
-
+addEventListener('load',doBuilt);
 
 var offset = 0;
 var add = 25/360;
@@ -20,20 +20,89 @@ var colist = new Array('#0099CC', '#009999', '#99CC00', '#FF5050', '#CC6600',
 
 var nameGroup = new Array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K');
 
+function CustomAlert(dialog, tipe){
+
+	//tipe 0 error red circle, tipe 1 warning yellow triangle
+	//tipe 2 Nota blue circle !, tipe3 succesfull submit check
+	var winW = window.innerWidth;
+	var winH = window.innerHeight;
+
+	var dialogoverlay = document.getElementById('dialogoverlay');
+	var dialogbox = document.getElementById('dialogbox');
+
+	dialogoverlay.style.display = "block";
+	dialogoverlay.style.height = winH+"px";
+
+	dialogbox.style.left = (winW/2) - 200+"px";
+	dialogbox.style.top = (winH/2 - 130) + "px";
+
+	dialogbox.style.display = "block";
+
+	if(tipe == 0){
+		document.getElementById('dialogboxbody').innerHTML = '<img src="img/icons/wrong.png" class="icons">' + dialog;
+		dialogbox.style.background = "#CC4040";
+	}
+
+	if(tipe == 1){
+		document.getElementById('dialogboxbody').innerHTML = '<img src="img/icons/warning.png" class="icons">' + dialog;
+		 dialogbox.style.background = "#FFCC66";
+
+	}
+
+	if(tipe == 2){
+		document.getElementById('dialogboxbody').innerHTML = '<img src="img/icons/message.png" class="icons">' + dialog;
+		dialogbox.style.background = "#6699FF";
+	}
+
+	if(tipe == 3){
+		document.getElementById('dialogboxbody').innerHTML = '<img src="img/icons/complete.png" class="icons">' + dialog;
+		dialogbox.style.background = "#66FF66";
+	}
+
+}
+
+function closeAlert()
+{
+	document.getElementById('dialogbox').style.display = "none";
+	document.getElementById('dialogoverlay').style.display = "none";
+}
+
+function isNum(cad)
+{
+	for(i = 0; i < cad.length; i++)if(cad[i] < '0' || cad[i] > '9')return false;
+	return true;
+}
+
+function doBuilt()
+{
+	var btn1 = document.getElementById("btnBuilt");
+	btn1.addEventListener("click", built);
+}
+
 function built()
 {
 	//Inicializando listeners
+	ct = 4;
+	for(i = 0; i < 4; i++)auxID[i] = false;
 
+	var total = document.getElementById("numGrupos").value;
 
-	var total = document.formGrupos.numGrupos.value;
-
-	if(total > 9)
+	if(isNum(total) == false)
 	{
-		alert("En estos momentos soportamos a lo máximo 9 Grupos, lo sentimos");
+		CustomAlert("Introduzca un numero, no letras", 0);
 		return;
 	}
+
+	if(total > 9 || total <= 0)
+	{
+		CustomAlert("Introduce un numero entre 1 y 9.", 0);
+		return;
+	}
+
 	printRectangles(total);
+
 	for(i = 0; i < total; i++)addSector(0, 1/total, i);
+	initListener();
 
 }
 
@@ -68,32 +137,34 @@ function init(){ addSector(0, 1, 0); printArrow();}
 /* Pintar flecha */
 function printArrow()
 {
-	var c = document.getElementById("miCanvas");
-    var cxt = c.getContext("2d");
+	var c1 = document.getElementById("miCanvas");
+    var cxt1 = c1.getContext("2d");
 
-	cxt.beginPath();
-    cxt.lineWidth = 1;
 
-    cxt.strokeStyle = "black";
-    cxt.fillStyle = "#00FF00";
+
+    cxt1.strokeStyle = "black";
+    cxt1.fillStyle = "#00FF00";
 
     var x = centerx + radius;
     var y = centery;
 
-    cxt.moveTo(x, y);
+    cxt1.beginPath();
+    cxt1.lineWidth = 1;
 
-    cxt.lineTo(x + 30, y + 30);
-    cxt.lineTo(x + 30, y + 15);
-    cxt.lineTo(x + 50, y + 15);
-    cxt.lineTo(x + 50, y - 15);
-    cxt.lineTo(x + 30, y - 15);
-    cxt.lineTo(x + 30, y - 30);
-    cxt.lineTo(x, y);
+    cxt1.moveTo(x, y);
 
-    cxt.fill();
-    cxt.stroke();
+    cxt1.lineTo(x + 30, y + 30);
+    cxt1.lineTo(x + 30, y + 15);
+    cxt1.lineTo(x + 50, y + 15);
+    cxt1.lineTo(x + 50, y - 15);
+    cxt1.lineTo(x + 30, y - 15);
+    cxt1.lineTo(x + 30, y - 30);
+    cxt1.lineTo(x, y);
 
-   cxt.closePath();
+    cxt1.stroke();
+   	cxt1.closePath();
+    cxt1.fill();
+
 }
 
 /*Pintar la leyenda de grupos*/
@@ -101,30 +172,33 @@ function printRectangles(total)
 {
 	var x = 30, y = 310;
 
-	var c = document.getElementById("miCanvas");
-    var cxt = c.getContext("2d");
-    cxt.beginPath();
+	var c2 = document.getElementById("miCanvas");
+    var cxt2 = c2.getContext("2d");
+    cxt2.beginPath();
 
-    cxt.fillStyle = "#1d1d1d";
-   	cxt.fillRect(x - 3, y - 3, 400, 400);
+
+    //var colDer = document.getElementById("right").backgroundColor;
+
+    cxt2.fillStyle = "rgba(231, 76, 60,1.0)"; ////////////////////// ARREGLAR RECUPERAR EL COLOR DEL DIV RIGHT
+   	cxt2.fillRect(x - 3, y - 3, 400, 400);
 
 	for(i = 0; i < total; i++){
 
-		cxt.fillStyle = "black";
-    	cxt.fillRect(x - 1, y - 1, 34, 24);
+		cxt2.fillStyle = "black";
+    	cxt2.fillRect(x - 1, y - 1, 34, 24);
 
-		cxt.fillStyle = colist[i];
-    	cxt.fillRect(x, y, 32, 22);
+		cxt2.fillStyle = colist[i];
+    	cxt2.fillRect(x, y, 32, 22);
 
-    	cxt.fillStyle = "black";
-    	cxt.font="15px 'Russo One', sans-serif";
+    	cxt2.fillStyle = "black";
+    	cxt2.font="15px 'Russo One', sans-serif";
 
-		cxt.fillText(nameGroup[i], x + 11, y + 19,50);
+		cxt2.fillText(nameGroup[i], x + 11, y + 19,50);
 		x += 40;
 	}
 
-	cxt.fill();
-	cxt.closePath();
+	cxt2.fill();
+	cxt2.closePath();
 }
 
 /*Encontrar suertudo busqueda en intervalos*/
@@ -132,7 +206,7 @@ var idLucky;
 function getLucky()
 {
 	var res = -1;
-	var total = document.formGrupos.numGrupos.value;
+	var total = document.getElementById('numGrupos').value;
 
 	var alfa = Math.PI * 2 / total;
 	var EPS = 1e-6;
@@ -145,7 +219,7 @@ function getLucky()
 		if(ini  < -EPS)ini += 2 * Math.PI;
 		if(fin  < -EPS)fin += 2 * Math.PI;
 
-		if(ini > fin + EPS)res = i;
+		if(ini > fin - EPS)res = i;
 	}
 
 	idLucky = res;
@@ -205,6 +279,7 @@ function sorteoIndividual()nombre:
 /*Pintar la ruleta varias veces con un offset que incrementa en add*/
 function rotate()
 {
+
 	pie(offset);
 	looper = setTimeout('rotate()', 0);
 
@@ -215,24 +290,33 @@ function rotate()
 /*Pintar la ruleta con un offset offs*/
 function pie(offs)
 {
-	  var total = document.formGrupos.numGrupos.value;
+	  var total = document.getElementById('numGrupos').value;
 	  for(i = 0; i < total; i++)addSector(offs, 1/total, i);
 }
 
 /*Evento que inicializa los listener de los botones 'Go' y 'Stop'*/
 function initListener()
 {
-	btn1 = document.getElementById("btnGo");
-	btn1.addEventListener("click", go);
-	btn2 = document.getElementById("btnStop");
+	var btn2 = document.getElementById("btnGo");
+	btn2.addEventListener("click", go);
+
 }
 
 /* Evento que gira la ruleta (boton 'GO')*/
 function go()
 {
+	document.getElementById('numGrupos').disabled = true;
+
+	var btn1 = document.getElementById("btnBuilt");
+	btn1.removeEventListener("click", built);
+
+	var btn2 = document.getElementById("btnGo");
+	btn2.removeEventListener("click", go);
+
+	var btn3 = document.getElementById("btnStop");
+	btn3.addEventListener("click", stop);
+
 	rotate();
-	btn1.removeEventListener("click", go);
-	btn2.addEventListener("click", stop);
 
 }
 
@@ -240,12 +324,18 @@ function go()
 function stop()
 {
 	clearTimeout(looper);
-	printLucky();
 
+	var btn3 = document.getElementById("btnStop");
+	btn3.removeEventListener("click", stop);
+
+	var btn1 = document.getElementById("btnBuilt");
+	btn1.addEventListener("click", built);
+
+	document.getElementById('numGrupos').disabled = false;
+
+	printLucky();
 	showAllGroup();
 
-	btn1.addEventListener("click", go);
-	btn2.removeEventListener("click", stop);
 }
 
 var auxID = [false, false, false, false];
@@ -253,14 +343,17 @@ var ct;
 
 function showAllGroup()
 {
-	document.getElementById("sorting").innerHTML = "";
-	document.getElementById("show").innerHTML = "";
+	document.getElementById("a1").innerHTML = g[idLucky][0].nombre;
+	document.getElementById("a2").innerHTML = g[idLucky][1].nombre;
+	document.getElementById("a3").innerHTML = g[idLucky][2].nombre;
+	document.getElementById("a4").innerHTML = g[idLucky][3].nombre;
 
+	/*
 	for(i = 0; i < 4; i++)
 	{
 		document.getElementById("show").innerHTML += g[idLucky][i].nombre + "\n";
 	}
-
+	*/
 	for(i = 0; i < 4; i++)auxID[i] = false;
 	ct = 4;
 
@@ -273,9 +366,8 @@ function choose(e)
 	e.preventDefault();
 	if(ct == 0)
 	{
-		alert("Todos los alumnos ya han sido sorteados");
+		CustomAlert("Todo el grupo ya está sorteado.", 2);
 		return;
-
 	}
 
 	var i = Math.floor(Math.random() * 4);
@@ -294,3 +386,8 @@ function choose(e)
 
 }
 
+function submitNote(e)
+{
+	e.preventDefault();
+	CustomAlert('El registro fue enviado', 3);
+}

@@ -1,0 +1,37 @@
+
+#dialogoverlay
+{
+	display: none;
+	opacity : .8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #1d1d1d;
+	width: 100%;
+	z-index: 10;
+}
+
+#dialogbox
+{
+	display: none;
+	position: fixed;
+	background: #CC4040;
+	border-radius: 15px;
+	width: 400px;
+	z-index: 10;
+	font-family: Arial, Helvetica, Sans-serif;
+	text-align: center;
+	color: #FFF;
+}
+
+
+.icons{height: 35px; width: 35px; padding-right: 10px; padding-top:10px;}
+#btnClose:hover {background-size: 80% 80%; transition :.5s;}
+
+#dialogbox > div{border-radius: 15px;}
+#dialogboxhead > div{float: right; border-radius: 15px; }
+
+#dialogbox > div{ background: #FFF; margin: 3px; }
+#dialogbox > div >  #dialogboxhead{ height: 30px;background: #585858 ; font-size: 19px; padding: 5px; color: #CCC; border-top-left-radius: 15px; border-top-right-radius: 15px;}
+#dialogbox > div >  #dialogboxbody{ height: 45px;background: #333; padding-bottom: 20px; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
+

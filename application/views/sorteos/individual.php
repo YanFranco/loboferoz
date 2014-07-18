@@ -3,10 +3,15 @@
 	<head>
 		<meta charset='utf-8'>
 		<link rel="stylesheet"  href="<?php echo base_url();?>css/styleSheet.css">
-		<script src="<?php echo base_url();?>js/scriptPrincipal.js"></script>
+		<link rel="stylesheet"  href="<?php echo base_url();?>css/cssAlert.css">
 		<script src="<?php echo base_url();?>js/myScript.js"></script>
+		<script src="<?php echo base_url();?>js/jsAlert.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+
+		<style>
+			#btnClose{ float:right; cursor: pointer; height:40px; width:40px; background: url('<?php echo base_url();?>images/icons/close.png') no-repeat; background-size: 70% 70%; z-index: 80;}
+		</style>
 		<script>
 
 			//var looper;
@@ -76,6 +81,14 @@
 
 	<body>
 
+		<div id = "dialogoverlay"></div>
+		<div id = "dialogbox">
+			<div>
+				<div id = "dialogboxhead"><div id="btnClose" onclick="closeAlert();"></div></div>
+				<div id = "dialogboxbody"></div>
+			</div>
+		</div>
+
 		<div id="contenido">
 
 			<header>
@@ -89,7 +102,7 @@
 			<section>
 
 				<div id="textoPr">
-					<div id="left">
+					<div class="left">
 
 						<form>
 
@@ -101,8 +114,11 @@
 						<p><label class="disp">Alumnos</label></p>
 						<textarea id ="nombres" class="showNames"></textarea>
 
+						<script>function refres(){ location.reload(true); }</script>
+						<p><input type="submit" value="Reset" id="reset" class="botones" onclick="refres();"></p>
+
 					</div>
-					<div id="right">
+					<div class="right">
 						<div align="center">
 							<img id="img1" src="<?php echo base_url();?>images/engranaje.jpg" alt="cog1"><br/>
 
@@ -123,7 +139,8 @@
 									var check = document.getElementById("ch1").checked;
 									if(check == false && window.noPicked.length == 0)
 									{
-										alert('Ya todos los grupos fueron sorteados');
+										CustomAlert("Todos los alumnos ya fueron sorteados", 2);
+										//alert('Ya todos los grupos fueron sorteados');
 										return;
 
 									}
