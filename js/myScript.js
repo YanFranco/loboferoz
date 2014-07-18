@@ -20,6 +20,20 @@ var colist = new Array('#0099CC', '#009999', '#99CC00', '#FF5050', '#CC6600',
 
 var nameGroup = new Array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K');
 
+var alumno = { id:"", nombre:""};
+var g = new Array();
+
+var limitGroup = 7;
+var limitAlumGroup = 6;
+
+g[0] = [{id: "0", nombre: "Marco Cáceres"}, {id:"1", nombre: "Yan Franco Calderon"}, {id: "2",nombre: "Alfonso Velásquez"}, {id: "3", nombre: "Aldo Inga"} , {id: "2",nombre: "Maria Quispe"}, {id: "2",nombre: "Jenny Cueva"}];
+g[1] = [{id: "0", nombre: "Jonathan Durand"}, {id: "1", nombre: "Cristhian Espinoza"}];
+g[2] = [{id: "0", nombre: "Luis Pando"}, {id: "1", nombre: "Edwin Kenedy"}, {id: "2", nombre: "Julio Buendia"}, {id: "3", nombre: "Luis Quispe"}];
+g[3] = [{id: "0", nombre: "Marco Rojas"}, {id: "1", nombre: "Larry Soto"}, {id: "2", nombre: "Gustavo Collantes"}, {id: "3", nombre: "Luis Carrion"}, {id: "2",nombre: "Ernesto Fuentes"}];
+g[4] = [{id: "0", nombre: "Roberto Cespedes"}, {id: "1", nombre: "Luis Arevalo"}, {id: "2", nombre: "Diego Mansilla"}, {id: "3", nombre: "Fiorella Fuentes"}];
+g[5] = [{id: "0", nombre: "Patricia Villanueva"}, {id: "1", nombre: "Cristhian Sotelo"}, {id: "2", nombre: "Pedro Gonzales"}, {id: "3",nombre: "Franco Torres"}, {id: "2",nombre: "Francisco Fernandez"}, {id: "2",nombre: "Antonio Cespedes"}];
+g[6] = [{id: "0", nombre: "Patrick Espinoza"}, {id: "1", nombre: "Luisa Quispe"}, {id: "2", nombre: "Tatiana Sore"}, {id: "3", nombre: "Victor Cueva"}, {id: "2",nombre: "Armando Gonzales"}];
+
 function CustomAlert(dialog, tipe){
 
 	//tipe 0 error red circle, tipe 1 warning yellow triangle
@@ -82,20 +96,17 @@ function doBuilt()
 function built()
 {
 	//Inicializando listeners
-	ct = 4;
-	for(i = 0; i < 4; i++)auxID[i] = false;
 
 	var total = document.getElementById("numGrupos").value;
-
 	if(isNum(total) == false)
 	{
 		CustomAlert("Introduzca un numero, no letras", 0);
 		return;
 	}
 
-	if(total > 9 || total <= 0)
+	if(total > limitGroup || total <= 0)
 	{
-		CustomAlert("Introduce un numero entre 1 y 9.", 0);
+		CustomAlert("Introduce un numero entre 1 y " + limitGroup, 0);
 		return;
 	}
 
@@ -104,6 +115,19 @@ function built()
 	for(i = 0; i < total; i++)addSector(0, 1/total, i);
 	initListener();
 
+	for(i = 1; i <= limitAlumGroup; i++)document.getElementById("item" + i).style.display = "none";
+	//clear all divs names
+
+
+	idLucky = null;
+
+	for(i = 0; i < limitAlumGroup; i++)
+	{
+		document.forms[i].elements[0].value = null;
+		document.forms[i].elements[1].value = null;
+	}
+
+	document.getElementById("textoPr").style.height = "430px";
 }
 
 /*Agregar un sector con offset ofs y de angulo en radianes frac con color colist[i]*/
@@ -250,23 +274,7 @@ function printLucky()
 
 }
 
-var alumno = { id:"", nombre:""};
 
-
-var g = new Array();
-
-g[0] = [{id: "0", nombre: "Marco Cáceres"}, {id:"1", nombre: "Yan Franco Calderon"}, {id: "2",nombre: "Alfonso Velásquez"}, {id: "3", nombre: "Aldo Inga"}];
-g[1] = [{id: "0", nombre: "Jonathan Durand"}, {id: "1", nombre: "Cristhian Espinoza"}, {id: "2", nombre: "Wilmer Solano"}, {id: "3", nombre: "Gustavo Castro"}];
-g[2] = [{id: "0", nombre: "Luis Pando"}, {id: "1", nombre: "Edwin Kenedy"}, {id: "2", nombre: "Julio Buendia"}, {id: "3", nombre: "Luis Quispe"}];
-g[3] = [{id: "0", nombre: "Cristhina Casas"}, {id: "1", nombre: "Gonzalo Quispe"}, {id: "2",nombre: "Rodolfo Mercado"}, {id: "3", nombre: "Alejandro Gutierres"}];
-g[4] = [{id: "0", nombre: "Mario Ynocente"}, {id: "1", nombre: "Martin Huamani"}, {id: "2", nombre: "Judith Fernandez"}, {id: "3", nombre: "Esteban Gonzales"}];
-g[5] = [{id: "0", nombre: "Lino Verdi"}, {id: "1", nombre: "Yan Luis Fernandez"}, {id: "2", nombre: "Pablo Gonzales"}, {id: "3", nombre: "Ricardo Cespedes"}];
-g[6] = [{id: "0", nombre: "Marco Rojas"}, {id: "1", nombre: "Larry Soto"}, {id: "2", nombre: "Alfonso Velázques"}, {id: "3", nombre: "Luis Carrion"}];
-g[7] = [{id: "0", nombre: "Roberto Cespedes"}, {id: "1", nombre: "Luis Arevalo"}, {id: "2", nombre: "Diego Mansilla"}, {id: "3", nombre: "Fiorella Fuentes"}];
-g[8] = [{id: "0", nombre: "Patricia Villanueva"}, {id: "1", nombre: "Cristhian Sotelo"}, {id: "2", nombre: "Pedro Gonzales"}, {id: "3",nombre: "Franco Torres"}];
-g[9] = [{id: "0", nombre: "Marco Cáceres"}, {id: "1", nombre: "Maria Veltran"}, {id: "2", nombre: "Carmen Aguirre"}, {id: "3", nombre: "Bithia Valentin"}];
-g[10] = [{id: "0", nombre: "Eduardo Melendez"}, {id: "1", nombre: "Roberto Hidalgo"}, {id: "2", nombre: "Jaime Soto"}, {id: "3", nombre: "Beatriz Mendoza"}];
-g[11] = [{id: "0", nombre: "Patrick Espinoza"}, {id: "1", nombre: "Luisa Quispe"}, {id: "2", nombre: "Tatiana Sore"}, {id: "3", nombre: "Victor Cueva"}];
 
 /*
 function sorteoIndividual()nombre:
@@ -325,6 +333,9 @@ function stop()
 {
 	clearTimeout(looper);
 
+	var btn4 = document.getElementById("btnSort");
+	btn4.addEventListener("click", Sort);
+
 	var btn3 = document.getElementById("btnStop");
 	btn3.removeEventListener("click", stop);
 
@@ -336,6 +347,19 @@ function stop()
 	printLucky();
 	showAllGroup();
 
+	var len = g[idLucky].length;
+	for(i = 1; i <= len; i++)document.getElementById("item" + i).style.display = "block";
+
+	ct = len;
+	for(i = 0; i < len; i++)auxID[i] = false;
+
+
+
+	for(i = 1; i <= len; i++)document.getElementById("rand" + i).innerHTML = "?";
+	if(len >= 5)document.getElementById("textoPr").style.height = "540px";
+
+	for(i = 1; i <= limitGroup; i++)document.getElementById("item" + i).className = "ac_hidden";
+
 }
 
 var auxID = [false, false, false, false];
@@ -343,19 +367,10 @@ var ct;
 
 function showAllGroup()
 {
-	document.getElementById("a1").innerHTML = g[idLucky][0].nombre;
-	document.getElementById("a2").innerHTML = g[idLucky][1].nombre;
-	document.getElementById("a3").innerHTML = g[idLucky][2].nombre;
-	document.getElementById("a4").innerHTML = g[idLucky][3].nombre;
-
-	/*
-	for(i = 0; i < 4; i++)
-	{
-		document.getElementById("show").innerHTML += g[idLucky][i].nombre + "\n";
-	}
-	*/
-	for(i = 0; i < 4; i++)auxID[i] = false;
-	ct = 4;
+	var len = g[idLucky].length;
+	for(i = 0; i < len; i++)document.getElementById("a" + (i + 1)).innerHTML = g[idLucky][i].nombre;
+	for(i = 0; i < len; i++)auxID[i] = false;
+	ct = len;
 
 }
 
@@ -370,10 +385,12 @@ function choose(e)
 		return;
 	}
 
-	var i = Math.floor(Math.random() * 4);
+	var len = g[idLucky].length;
+	var i = Math.floor(Math.random() * len);
+
 	while(true)
 	{
-		var i = Math.floor(Math.random() * 4);
+		var i = Math.floor(Math.random() * len);
 		if(auxID[i] == false)
 		{
 			auxID[i] = true;
@@ -390,4 +407,51 @@ function submitNote(e)
 {
 	e.preventDefault();
 	CustomAlert('El registro fue enviado', 3);
+}
+
+function Sort()
+{
+	var len = g[idLucky].length;
+	var nums = new Array();
+
+	for(i = 0; i < len; i++)nums.push(i);
+
+	while(i--){
+        var j=Math.floor( Math.random() * (i+1) );
+        var tmp=nums[i];
+        nums[i]=nums[j];
+        nums[j]=tmp;
+    }
+
+    // RAMDON DE LOS ALUMNOS DEL GRUPO ELEGIDO
+    for(i = 0; i < len; i++)document.getElementById("rand" + (i + 1)).innerHTML = (nums[i] + 1);
+
+
+}
+
+/* Valida notas de cada integrante del grupo y envia*/
+function validNotes()
+{
+
+
+	if(idLucky == null)
+	{
+		CustomAlert('No hay grupos sorteados aún', 1);
+		return;
+	}
+	var len = g[idLucky].length;
+
+	for(i = 0; i < len; i++)
+	{
+		var nota = document.forms[i].elements[0].value;
+		if(nota < 0 || nota > 20 || nota =="")
+		{
+			CustomAlert('Ingrese una nota entre 0 y 20 en el registro ' + (i + 1), 0);
+			return;
+		}
+
+	}
+
+	CustomAlert('Los registros fueron enviados satisfactoriamente', 3);
+	return;
 }

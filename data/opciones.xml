@@ -78,7 +78,7 @@
             </item>
             <item>
                 <nombre>Sorteo grupal</nombre>
-                <tamano>S</tamano>
+                <tamano>L</tamano>
                 <color>sgreen</color>
                 <icono>repos.png</icono>
                 <url>sorteos/sorteo/sgrupal</url>

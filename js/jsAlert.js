@@ -14,7 +14,7 @@ function CustomAlert(dialog){
 	dialogbox.style.top = (winH/2 - 130) + "px";
 
 	dialogbox.style.display = "block";
-	document.getElementById('dialogboxbody').innerHTML = '<img src="images/icons/warning.png" class="icons">' + dialog;
+	document.getElementById('dialogboxbody').innerHTML = '<img src="img/icons/warning.png" class="icons">' + dialog;
 
 }
 

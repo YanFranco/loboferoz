@@ -26,6 +26,7 @@ class Sorteo extends CI_Controller{
 			$datos = array('items'=>$items,'evento'=>$evento);
 			$this->load->view("sorteos/individual",$datos);
 		}
+
 		// $this->load->view("sorteos/individual");
 		//  if (!$items) {
 		//     echo 'No se pudo ejecutar la consulta: ' . mysql_error();
@@ -57,7 +58,9 @@ class Sorteo extends CI_Controller{
 			$params = array($evento);
 			$items = $this->sorteos->loadNumeroGrupos($params);
 			$datos = array('items'=>$items,'evento'=>$evento);
-			// $this->load->view("sorteos/individual",$datos);
+			//Traer la cantidad de grupos
+			$numGrupos = $this->sorteos->loadNumeroGrupos($params);
+
 
 		$this->load->view("sorteos/grupal");
 		//$this->load->view("sorteos/individual");

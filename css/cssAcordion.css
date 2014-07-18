@@ -7,11 +7,9 @@ body
   font-family: 'Russo One', sans-serif;
 }
 
-/*
-#item1{ display: none; }
-#item2{ display: none; }
-#item3{ display: none; }
-*/
+
+
+
 
 #accordion section, #accordion .pointer, #accordion h1, #accordion p
 {
@@ -20,6 +18,13 @@ body
   -ms-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
+
+#item1{ display: none; }
+#item2{ display: none; }
+#item3{ display: none; }
+#item4{ display: none; }
+#item5{ display: none; }
+#item6{ display: none; }
 
 /* margen de cada acordion*/
 #accordion {
@@ -47,7 +52,7 @@ body
 #accordion section {
   overflow:hidden;
  /*height:220px;*/
-  height:200px;
+  height:150px;
   width: 350px;
   /*border:1px #333 solid;*/
   border:1px #333 solid;
@@ -91,4 +96,6 @@ body
   padding:0;
 }
 
-
+.rand{
+  float: right;
+}
