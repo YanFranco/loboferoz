@@ -56,15 +56,15 @@ class Sorteo extends CI_Controller{
 	public function sgrupal() {
 			$evento = $this->session->userdata["evento"];
 			$params = array($evento);
-			$items = $this->sorteos->loadNumeroGrupos($params);
-			$datos = array('items'=>$items,'evento'=>$evento);
-			//Traer la cantidad de grupos
+			//$items = $this->sorteos->loadNumeroGrupos($params);
 			$numGrupos = $this->sorteos->loadNumeroGrupos($params);
-
-
-		$this->load->view("sorteos/grupal");
+			$items = $this->sorteos->loadGruposSorteo($params);
+			$datos = array('items'=>$items,'evento'=>$evento,'numGrupos'=>$numGrupos);
+			//Traer la cantidad de grupos
+		$this->load->view("sorteos/grupal",$datos);
 		//$this->load->view("sorteos/individual");
 	}
+
 	public function sreporte() {
 		if($this->login_model->isLogged() == TRUE){
 			$evento = $this->session->userdata["evento"];

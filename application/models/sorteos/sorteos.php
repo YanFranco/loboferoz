@@ -16,13 +16,22 @@ class Sorteos extends CI_Model {
     public function loadParticipantesSorteo($params) {
 		$query = "call sorteo_listarParticipante_sp(?);";
 		$consulta = $this->db->query($query,$params);
-		return $consulta->result();
+		// return $consulta->result();
+		$out = $consulta->result();
+		$consulta->next_result();
+		$consulta->free_result();
+		return $out;
+
     }
 ////////////////////////// Cargar los Grupos a sortear ///////////////////////
     public function loadGruposSorteo($params) {
-		$query = "call sorteo_listarGrupos_sp(?,?)";
+		$query = "call sorteo_listarGrupos_sp(?)";
 		$consulta = $this->db->query($query,$params);
-		return $consulta->result();
+		//return $consulta->result();
+		$out = $consulta->result();
+		$consulta->next_result();
+		$consulta->free_result();
+		return $out;
     }
 ///////////////////////// Insertar calificacion de alumno //////////////////////////
 	public function insertarParticipacion($params){
@@ -34,25 +43,40 @@ class Sorteos extends CI_Model {
 	public function loadGrupoParticipantesSorteo($params) {
 		$query = "call sorteo_listarGrupoParticipantes_sp(?)";
 		$consulta = $this->db->query($query,$params);
-		return $consulta->result();
+		$out = $consulta->result();
+		$consulta->next_result();
+		$consulta->free_result();
+		return $out;
+		//return $consulta->result();
     }
 ///////////////////////// Mostrar el numero de grupos para un Sorteos//////////////////////////
 	public function loadNumeroGrupos($params) {
 		$query = "call sorteo_NumeroGrupos_sp(?)";
 		$consulta = $this->db->query($query,$params);
-		return $consulta->result();
+		$out = $consulta->result();
+		$consulta->next_result();
+		$consulta->free_result();
+		return $out;
     }
 
     public function ReporteParticipacion($params){
     	$query = "call reporte_participacion_sp(?)";
     	$consulta = $this->db->query($query,$params);
-    	return $consulta->result();
+    	// return $consulta->result();
+    	$out = $consulta->result();
+		$consulta->next_result();
+		$consulta->free_result();
+		return $out;
     }
 
 	public function RecordAsistencia($params){
     	$query = "call reporte_asistencia_sp(?)";
     	$consulta = $this->db->query($query,$params);
-    	return $consulta->result();
+    	// return $consulta->result();
+    	$out = $consulta->result();
+		$consulta->next_result();
+		$consulta->free_result();
+		return $out;
     }
 /**************************************************************************/
 	// public function delete($id){
