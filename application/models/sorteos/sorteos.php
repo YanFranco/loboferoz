@@ -78,6 +78,15 @@ class Sorteos extends CI_Model {
 		$consulta->free_result();
 		return $out;
     }
+    public function RecordParticipacion($params){
+    	$query = "call Reporte_RecordParticipacion_sp(?)";
+    	$consulta = $this->db->query($query,$params);
+    	// return $consulta->result();
+    	$out = $consulta->result();
+		$consulta->next_result();
+		$consulta->free_result();
+		return $out;
+    }
 /**************************************************************************/
 	// public function delete($id){
 	// 	$query = "call sp_tema_delete(?)";

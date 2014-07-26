@@ -101,7 +101,14 @@
         <titulo>Reportes</titulo>
         <items>
             <item>
-                <nombre>Reporte de participación</nombre>
+                <nombre>Record de participación</nombre>
+                <tamano>L</tamano>
+                <color>sblue</color>
+                <icono>recordparticipacion.png</icono>
+                <url>sorteos/sorteo/detParticipacion</url>
+            </item>
+            <item>
+                <nombre>Detalle de participación</nombre>
                 <tamano>L</tamano>
                 <color>wgreen</color>
                 <icono>participacion.png</icono>

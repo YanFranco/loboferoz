@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>Record de asistencia</h1>
+			<h1>Record de participacion individual</h1>
 			<h6>
 				<a href="<?php echo base_url();?>" title="Al inicio" >
 					<?php echo img("images/menu.png");?>
@@ -22,32 +22,29 @@
 					<table>
 						<thead>
 							<tr>
-								<th width="6%">Participante</th>
-								<th width="3%">Presente</th>
-								<th width="3%">Presente (%)</th>
-								<th width="3%">Ausente</th>
-								<th width="3%">Ausente (%)</th>
-								<th width="3%">Total sesiones</th>
+								<th width="6%">Nombre</th>
+								<th width="3%">Participaciones</th>
+								<th width="3%">Fecha inicio Evento</th>
+								<th width="3%">Fecha Actual</th>
+								<th width="3%">Fecha Fin Evento</th>
 							</tr>
 						</thead>
 						<tbody>
 						<?php
 							//echo print_r($items);
 							foreach($items as $key => $item) {
-							$participante = $item->Participante;
-							$presente = $item->Presente;
-							$pPresente = $item->pPresente;
-							$as = $item->Ausente;
-							$pAusente = $item->pAusente;
-							$t =$item->Total;
+							$participante = $item->participante;
+							$participaciones = $item->participaciones;
+							$fechaInicio = $item->fechaInicio;
+							$fechaActual = $item->fechaActual;
+							$fechaFin= $item->fechaFin;
 							echo "
 							<tr>
 								<td>$participante</td>
-								<td>$presente</td>
-								<td><b>$pPresente %</b></td>
-								<td>$as</td>
-								<td>$pAusente %</td>
-								<td>$t</td>
+								<td>$participaciones</td>
+								<td>$fechaInicio</td>
+								<td><b>$fechaActual</b></td>
+								<td>$fechaFin</td>
 							</tr>";
 						}
 						?>

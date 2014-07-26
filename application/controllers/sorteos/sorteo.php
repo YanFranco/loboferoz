@@ -85,6 +85,16 @@ class Sorteo extends CI_Controller{
 			// $this->load->view("sorteos/individual",$datos);
 		$this->load->view("sorteos/rasistencia",$datos);
 		}
+	}
+	public function detParticipacion() {
+		if($this->login_model->isLogged() == TRUE){
+			$evento = $this->session->userdata["evento"];
+			$params = array($evento);
+			$items = $this->sorteos->RecordParticipacion($params);
+			$datos = array('items'=>$items,'evento'=>$evento);
+			// $this->load->view("sorteos/individual",$datos);
+		$this->load->view("sorteos/rparticipacion",$datos);
+		}
 
 	}
 }
