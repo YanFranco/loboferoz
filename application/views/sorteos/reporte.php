@@ -30,6 +30,7 @@
 					<table>
 						<thead>
 							<tr>
+								<th width="5%">Nro</th>
 								<th width="20%">Participante</th>
 								<th width="9%">Fecha Sesi&oacute;n</th>
 								<th width="15%">Tipo Participacion</th>
@@ -41,7 +42,9 @@
 						<tbody>
 						<?php
 							//echo print_r($items);
+						$i=0;
 						foreach($items as $key => $item) {
+							$i=$i+1;
 							$participante = $item->Participante;
 							$fechaSesion = $item->FechaSesion;
 							$tipoParticipacion = $item->TipoParticipacion;
@@ -50,6 +53,7 @@
 							$comentario = $item->Comentario;
 							echo "
 							<tr>
+								<td>$i.</td>
 								<td>$participante</td>
 								<td>$fechaSesion</td>
 								<td>$tipoParticipacion</td>

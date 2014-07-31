@@ -29,18 +29,27 @@
 					<table>
 						<thead>
 							<tr>
+<<<<<<< HEAD
 								<th width="60%">Nombre</th>
 								<th width="40%">Participaciones</th>
+=======
+								<th width="5%">Nro</th>
+								<th width="60%">Nombre</th>
+								<th width="35%">Participaciones</th>
+>>>>>>> origin/master
 							</tr>
 						</thead>
 						<tbody>
 						<?php
 							//echo print_r($items);
+							$i=0;
 							foreach($items as $key => $item) {
+							$i = $i +1;
 							$participante = $item->participante;
 							$participaciones = $item->participaciones;
 							echo "
 							<tr>
+								<td>$i.</td>
 								<td>$participante</td>
 								<td>$participaciones</td>
 							</tr>";
