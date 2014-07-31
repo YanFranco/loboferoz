@@ -1,7 +1,7 @@
 	<html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		<title>Reporte de participación</title>
+		<title>Reporte detalle de participaci&oacute;n</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/detail.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/fonts.css" />
 		<script src="<?php echo base_url();?>js/jquery-min.js"></script>
@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>Reporte	de participaci&oacute;n</h1>
+			<h1>Reporte detalle de participaci&oacute;n</h1>
 			<h6>
 				<a href="<?php echo base_url();?>" title="Al inicio" >
 					<?php echo img("images/menu.png");?>
@@ -30,6 +30,7 @@
 					<table>
 						<thead>
 							<tr>
+								<th width="5%">Nro</th>
 								<th width="20%">Participante</th>
 								<th width="9%">Fecha Sesi&oacute;n</th>
 								<th width="15%">Tipo Participacion</th>
@@ -41,7 +42,9 @@
 						<tbody>
 						<?php
 							//echo print_r($items);
+						$i=0;
 						foreach($items as $key => $item) {
+							$i=$i+1;
 							$participante = $item->Participante;
 							$fechaSesion = $item->FechaSesion;
 							$tipoParticipacion = $item->TipoParticipacion;
@@ -50,6 +53,7 @@
 							$comentario = $item->Comentario;
 							echo "
 							<tr>
+								<td>$i.</td>
 								<td>$participante</td>
 								<td>$fechaSesion</td>
 								<td>$tipoParticipacion</td>

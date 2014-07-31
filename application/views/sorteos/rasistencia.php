@@ -22,6 +22,7 @@
 					<table>
 						<thead>
 							<tr>
+								<th width="1%">Nro</th>
 								<th width="6%">Participante</th>
 								<th width="3%">Presente</th>
 								<th width="3%">Presente (%)</th>
@@ -33,7 +34,9 @@
 						<tbody>
 						<?php
 							//echo print_r($items);
+						$i= 0;
 							foreach($items as $key => $item) {
+							$i = $i+1;
 							$participante = $item->Participante;
 							$presente = $item->Presente;
 							$pPresente = $item->pPresente;
@@ -42,6 +45,7 @@
 							$t =$item->Total;
 							echo "
 							<tr>
+								<td>$i.</td>
 								<td>$participante</td>
 								<td>$presente</td>
 								<td><b>$pPresente %</b></td>
