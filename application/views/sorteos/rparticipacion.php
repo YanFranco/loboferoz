@@ -1,7 +1,7 @@
 	<html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		<title>Record de asistencia</title>
+		<title>Record de participacion</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/detail.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/fonts.css" />
 		<script src="<?php echo base_url();?>js/jquery-min.js"></script>
@@ -19,14 +19,18 @@
 		<section>
 
 			<div class="detailContainer">
+						<?php foreach($items as $key => $item) {
+						$fechaActual = $item->fechaActual;
+						$fechaFin= $item->fechaFin;
+						$fechaInicio = $item->fechaInicio;} ?>
+					<br><b>Fecha Inicio Evento :</b> <?php echo $fechaInicio; ?> </br>
+					<br><b>Fecha Fin Evento    :</b> <?php echo $fechaFin; ?></br>
+					<br><b>Fecha Actual        :</b> <?php echo $fechaActual; ?></br>
 					<table>
 						<thead>
 							<tr>
-								<th width="6%">Nombre</th>
-								<th width="3%">Participaciones</th>
-								<th width="3%">Fecha inicio Evento</th>
-								<th width="3%">Fecha Actual</th>
-								<th width="3%">Fecha Fin Evento</th>
+								<th width="60%">Nombre</th>
+								<th width="40%">Participaciones</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -35,16 +39,10 @@
 							foreach($items as $key => $item) {
 							$participante = $item->participante;
 							$participaciones = $item->participaciones;
-							$fechaInicio = $item->fechaInicio;
-							$fechaActual = $item->fechaActual;
-							$fechaFin= $item->fechaFin;
 							echo "
 							<tr>
 								<td>$participante</td>
 								<td>$participaciones</td>
-								<td>$fechaInicio</td>
-								<td><b>$fechaActual</b></td>
-								<td>$fechaFin</td>
 							</tr>";
 						}
 						?>

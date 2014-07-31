@@ -1,7 +1,7 @@
 	<html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		<title>Reporte de participación</title>
+		<title>Reporte detalle de participaci&oacute;n</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/detail.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/fonts.css" />
 		<script src="<?php echo base_url();?>js/jquery-min.js"></script>
@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>Reporte	de participaci&oacute;n</h1>
+			<h1>Reporte detalle de participaci&oacute;n</h1>
 			<h6>
 				<a href="<?php echo base_url();?>" title="Al inicio" >
 					<?php echo img("images/menu.png");?>
